@@ -1,5 +1,7 @@
 #include "plugins.h"
 #include <stdexcept>
+#include <filesystem>
+#include <iostream>
 
 #ifndef NOMINMAX
 #  define NOMINMAX
@@ -86,7 +88,14 @@ std::size_t Plugins::load(const std::filesystem::path& dir) {
         try {
             if (load_one(entry.path())) ++n;
         }
-        catch (...) {}
+        catch (const std::exception& e) {
+            std::cerr << "[warning] skip " << entry.path().filename().string()
+                << ": " << e.what() << '\n';
+        }
+        catch (...) {
+            std::cerr << "[warning] skip " << entry.path().filename().string()
+                << ": unknown error\n";
+        }
     }
     return n;
 }

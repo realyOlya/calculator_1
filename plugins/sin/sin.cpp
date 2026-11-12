@@ -12,6 +12,6 @@ public:
 };
 
 extern "C" {
-    PLUGIN_API Plugin* PLUGIN_CALL make_plugin() { return new Sin(); }
-    PLUGIN_API void    PLUGIN_CALL free_plugin(Plugin* p) noexcept { delete p; }
+    Plugin* make_plugin() { return new Sin(); }
+    void free_plugin(Plugin* p) noexcept { delete p; }
 }

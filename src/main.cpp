@@ -4,9 +4,10 @@
 #include <iostream>
 #include <string>
 
-int main() {
+int main(int argc, char* argv[]) {
     try {
-        const std::filesystem::path dir = std::filesystem::current_path() / "plugins";
+        std::filesystem::path exe_path = std::filesystem::absolute(argv[0]);
+        std::filesystem::path dir = exe_path.parent_path() / "plugins";
 
         Plugins plugins;
         const std::size_t n = plugins.load(dir);
@@ -36,5 +37,4 @@ int main() {
         return 1;
     }
     return 0;
-
 }

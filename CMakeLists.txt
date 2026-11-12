@@ -24,6 +24,7 @@ set_target_properties(calc PROPERTIES
 )
 
 set(PLUGIN_OUT ${CMAKE_BINARY_DIR}/examples/plugins)
+
 add_subdirectory(plugins/sin)
 add_subdirectory(plugins/ln)
 add_subdirectory(plugins/exp)

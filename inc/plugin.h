@@ -11,7 +11,7 @@
 
 class Plugin {
 public:
-    virtual ~Plugin() = default;
+    virtual ~Plugin() noexcept = default;
     virtual std::string_view name() const noexcept = 0;
     virtual double calc(double x) const = 0;
 };

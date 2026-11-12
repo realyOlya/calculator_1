@@ -1,13 +1,12 @@
 #include "plugin.h"
 #include <cmath>
-
-constexpr double PI = 3.14159265358979323846;
+#include <numbers>
 
 class Sin : public Plugin {
 public:
     std::string_view name() const noexcept override { return "sin"; }
     double calc(double x) const override {
-        return std::sin(x * PI / 180.0);
+        return std::sin(x * std::numbers::pi / 180.0);
     }
 };
 

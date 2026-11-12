@@ -19,10 +19,10 @@ target_include_directories(core PUBLIC inc)
 add_executable(calc src/main.cpp)
 target_link_libraries(calc PRIVATE core)
 set_target_properties(calc PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/$<CONFIG>
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/examples
 )
 
-set(PLUGIN_OUT ${CMAKE_BINARY_DIR}/$<CONFIG>/plugins)
+set(PLUGIN_OUT ${CMAKE_BINARY_DIR}/plugins)
 add_subdirectory(plugins/sin)
 add_subdirectory(plugins/ln)
 add_subdirectory(plugins/exp)

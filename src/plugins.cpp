@@ -30,7 +30,6 @@ namespace {
 }
 
 Plugins::~Plugins() {
-    m_map.clear();
     for (void* lib : m_libs) close_lib(lib);
 }
 
